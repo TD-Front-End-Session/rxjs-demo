@@ -9,6 +9,7 @@ import { SimpleComponent } from './simple/simple.component';
 import { Simple1Component } from './simple1/simple1.component';
 import { Stream1Component } from './stream1/stream1.component';
 import { Stream2Component } from './stream2/stream2.component';
+import { ConcatStreamComponent } from './concat-stream/concat-stream.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { Stream2Component } from './stream2/stream2.component';
     Simple1Component,
     Stream1Component,
     Stream2Component,
+    ConcatStreamComponent,
   ],
   imports: [
     BrowserModule,

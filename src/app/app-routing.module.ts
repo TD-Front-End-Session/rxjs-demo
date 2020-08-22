@@ -5,6 +5,8 @@ import { Simple1Component } from './simple1/simple1.component';
 import { StreamComponent } from './stream/stream.component';
 import { Stream1Component } from './stream1/stream1.component';
 import { Stream2Component } from './stream2/stream2.component';
+import { ConcatStreamComponent } from './concat-stream/concat-stream.component';
+
 
 import { PipeComponent } from './pipe/pipe.component';
 
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'stream', component: StreamComponent },
   { path: 'stream1', component: Stream1Component },
   { path: 'stream2', component: Stream2Component },
+  { path: 'concat-stream', component: ConcatStreamComponent },
+
 
   { path: 'pipe', component: PipeComponent },
 ];
