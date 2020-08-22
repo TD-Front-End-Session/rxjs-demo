@@ -7,6 +7,8 @@ import { StreamComponent } from './stream/stream.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { SimpleComponent } from './simple/simple.component';
 import { Simple1Component } from './simple1/simple1.component';
+import { Stream1Component } from './stream1/stream1.component';
+import { Stream2Component } from './stream2/stream2.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { Simple1Component } from './simple1/simple1.component';
     PipeComponent,
     SimpleComponent,
     Simple1Component,
+    Stream1Component,
+    Stream2Component,
   ],
   imports: [
     BrowserModule,

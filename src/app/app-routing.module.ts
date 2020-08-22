@@ -3,12 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { SimpleComponent } from './simple/simple.component';
 import { Simple1Component } from './simple1/simple1.component';
 import { StreamComponent } from './stream/stream.component';
+import { Stream1Component } from './stream1/stream1.component';
+import { Stream2Component } from './stream2/stream2.component';
+
 import { PipeComponent } from './pipe/pipe.component';
 
 const routes: Routes = [
   { path: 'simple', component: SimpleComponent },
   { path: 'simple1', component: Simple1Component },
   { path: 'stream', component: StreamComponent },
+  { path: 'stream1', component: Stream1Component },
+  { path: 'stream2', component: Stream2Component },
+
   { path: 'pipe', component: PipeComponent },
 ];
 
