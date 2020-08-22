@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, timer } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-simple1',
@@ -13,12 +14,7 @@ export class Simple1Component implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // 1. 定义被观察者
-    this.observable = Observable.create(observer => {
-      observer.next(1);
-      observer.next(2);
-      observer.next(3);
-      observer.complete(1);
-    });
+    this.observable = timer(1000, 1000).pipe(take(7));
 
     // 2. 定义观察者
     const observerA = {
