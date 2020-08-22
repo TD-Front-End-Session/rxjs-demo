@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { StreamComponent } from './stream/stream.component';
+import { PipeComponent } from './pipe/pipe.component';
+import { SimpleComponent } from './simple/simple.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StreamComponent,
+    PipeComponent,
+    SimpleComponent,
   ],
   imports: [
     BrowserModule,
