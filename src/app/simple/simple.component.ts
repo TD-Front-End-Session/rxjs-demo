@@ -1,25 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import { fromEvent } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 @Component({
   selector: 'app-simple',
   templateUrl: './simple.component.html',
   styleUrls: ['./simple.component.less']
 })
-export class SimpleComponent implements OnInit {
+export class SimpleComponent implements OnInit, OnDestroy {
+  observable: Observable<Number>;
+  subscription: Subscription;
   constructor() {}
 
   ngOnInit(): void {
-    const el = document.getElementById('my-element');
-
-    const mouseMoves = fromEvent(document, 'mousemove');
-
-    const subscription = mouseMoves.subscribe((evt: MouseEvent) => {
-      
-      el.innerHTML = `Coords: ${evt.clientX} X ${evt.clientY}`;
-
-      if (evt.clientX < 40 && evt.clientY < 40) {
-        subscription.unsubscribe();
-      }
+    // 1. 定义被观察者
+    this.observable = Observable.create(observer => {
+      observer.next(1);
+      observer.next(2);
+      observer.next(3);
+      observer.complete(1);
     });
+
+    // 2. 定义观察者
+    const observerA = {
+      next: value => {
+        console.log('observerA', value);
+      },
+      error: error => {
+        console.log('observerA', error);
+      },
+      complete: () => {
+        console.log('observerA', 'complete');
+      }
+    };
+
+    // 3. 订阅
+    this.subscription = this.observable.subscribe(observerA);
+  };
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { StreamComponent } from './stream/stream.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { SimpleComponent } from './simple/simple.component';
+import { Simple1Component } from './simple1/simple1.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { SimpleComponent } from './simple/simple.component';
     StreamComponent,
     PipeComponent,
     SimpleComponent,
+    Simple1Component,
   ],
   imports: [
     BrowserModule,
