@@ -10,6 +10,9 @@ import { Simple1Component } from './simple1/simple1.component';
 import { Stream1Component } from './stream1/stream1.component';
 import { Stream2Component } from './stream2/stream2.component';
 import { ConcatStreamComponent } from './concat-stream/concat-stream.component';
+import { MulticastComponent } from './multicast/multicast.component';
+import { Consumer1Component } from './consumer1/consumer1.component';
+import { Consumer2Component } from './consumer2/consumer2.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { ConcatStreamComponent } from './concat-stream/concat-stream.component';
     Stream1Component,
     Stream2Component,
     ConcatStreamComponent,
+    MulticastComponent,
+    Consumer1Component,
+    Consumer2Component,
   ],
   imports: [
     BrowserModule,
