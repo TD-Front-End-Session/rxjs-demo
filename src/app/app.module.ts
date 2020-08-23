@@ -26,7 +26,7 @@ import { Consumer2Component } from './consumer2/consumer2.component';
     ConcatStreamComponent,
     MulticastComponent,
     Consumer1Component,
-    Consumer2Component,
+    Consumer2Component
   ],
   imports: [
     BrowserModule,

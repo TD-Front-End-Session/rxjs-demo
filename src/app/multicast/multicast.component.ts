@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { fromEvent, Subject } from 'rxjs';
+import { Observable, fromEvent, Subject } from 'rxjs';
+import { mapTo, scan } from 'rxjs/operators';
+import { Message } from '../model/message';
+import { MulticastService } from '../multicast.service';
 
 @Component({
   selector: 'app-multicast',
@@ -7,11 +10,21 @@ import { fromEvent, Subject } from 'rxjs';
   styleUrls: ['./multicast.component.less']
 })
 export class MulticastComponent implements OnInit {
-  subject: Subject;
-  constructor() {}
+  subject = new Subject<Message>();
+  constructor(private multicastService: MulticastService) {}
 
   ngOnInit(): void {
     const multicastBtn = document.getElementById('multicast-btn');
-    this.subject = fromEvent(multicastBtn,'click');
-  }
+    fromEvent(multicastBtn,'click')
+    .pipe(
+      mapTo(1),
+      scan((acc, one) => acc + one, 0),
+    )
+    .subscribe(value => {
+      const message = {
+        text: `click ${value}`
+      };
+      this.multicastService.sendMessage(message);
+    });
+  };
 }

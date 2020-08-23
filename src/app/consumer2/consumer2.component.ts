@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MulticastService } from '../multicast.service';
 @Component({
   selector: 'app-consumer2',
   templateUrl: './consumer2.component.html',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Consumer2Component implements OnInit {
 
-  constructor() { }
+  constructor(private multicastService: MulticastService) { }
 
   ngOnInit(): void {
+    this.multicastService.getMessage().subscribe(value => {
+      console.log(`consumer2 ${value.text}`)
+    });
   }
 
 }
