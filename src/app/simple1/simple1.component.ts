@@ -51,6 +51,7 @@ export class Simple1Component implements OnInit, OnDestroy {
   };
 
   ngOnDestroy():void {
+    // 4 取消订阅
     this.subscriptions.forEach(subscription => {
       subscription.unsubscribe();
     })

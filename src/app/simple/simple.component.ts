@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 @Component({
   selector: 'app-simple',
   templateUrl: './simple.component.html',
@@ -16,7 +17,8 @@ export class SimpleComponent implements OnInit, OnDestroy {
       observer.next(1);
       observer.next(2);
       observer.next(3);
-      observer.complete(1);
+      observer.complete();
+      // observer.error("e");
     });
 
     // 2. 定义观察者
@@ -33,7 +35,10 @@ export class SimpleComponent implements OnInit, OnDestroy {
     };
 
     // 3. 订阅
-    this.subscription = this.observable.subscribe(observerA);
+    this.subscription = this.observable.pipe(
+      finalize(() => {console.log('finalize')}),
+    )
+    .subscribe(observerA);
   };
 
   ngOnDestroy(): void {

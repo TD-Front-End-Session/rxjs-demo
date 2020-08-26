@@ -9,8 +9,7 @@ import { ConcatStreamComponent } from './concat-stream/concat-stream.component';
 import { MulticastComponent } from './multicast/multicast.component';
 import { Consumer1Component } from './consumer1/consumer1.component';
 import { Consumer2Component } from './consumer2/consumer2.component';
-
-import { PipeComponent } from './pipe/pipe.component';
+import { SchedulerComponent } from './scheduler/scheduler.component';
 
 const routes: Routes = [
   { path: 'simple', component: SimpleComponent },
@@ -30,7 +29,7 @@ const routes: Routes = [
     ]
   },
 
-  { path: 'pipe', component: PipeComponent }
+  { path: 'scheduler', component: SchedulerComponent }
 ];
 
 @NgModule({
