@@ -1,19 +1,19 @@
 <p>stream1 works!</p>
 <p>Example 1</p>
 <div>演示创建操作符 fromEvent</div>
-<div>演示转换操作符 mapTo, scan</div>
+<div>演示转换操作符 </div>
+<div>mapTo：每次源 Observble 发出值时，都在输出 Observable 上发出给定的常量值。</div>
+<div>scan：将所有源发出的数据结合起来，即累加器函数。</div>
 <button id="click-count">click count</button>
 <p>Example 2</p>
-<div>演示操作符 fromEvent, of</div>
-<div>演示转换操作符 mapTo, expand</div>
-<div>演示过滤操作符 take</div>
-<div>演示工具操作符 delay</div>
-
+<div>演示操作符 of：创建一个 Observable，它会依次发出由你提供的参数。</div>
+<div>演示转换操作符 expand：递归地将每个源值投射成 Observable，这个 Observable 会被合并到输出 Observable 中。</div>
+<div>演示工具操作符 delay：通过给定的超时或者直到一个给定的时间来延迟源 Observable 的发送。</div>
 <button id="expand-btn">expand operator</button>
 
 <p>Example 3</p>
-<div>演示创建操作符 fromEvent, of, empty</div>
-<div>演示转换操作符 mergeMap</div>
-<div>演示过滤操作符 skip</div>
+<div>演示创建操作符 empty：创建一个什么数据都不发出并且立马完成的 Observable。</div>
+<div>演示转换操作符 mergeMap：将每个源值投射成同一个 Observable ，该 Observable 会多次合并到输出 Observable 中。</div>
+<div>演示过滤操作符 skip：该 Observable 跳过源 Observable 发出的前N个值</div>
 <button id="print-even">print even</button>
 

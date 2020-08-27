@@ -15,7 +15,7 @@ export class MulticastComponent implements OnInit {
 
   ngOnInit(): void {
     const multicastBtn = document.getElementById('multicast-btn');
-    fromEvent(multicastBtn,'click')
+    fromEvent(multicastBtn, 'click')
     .pipe(
       mapTo(1),
       scan((acc, one) => acc + one, 0),
