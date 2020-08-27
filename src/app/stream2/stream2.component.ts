@@ -23,13 +23,13 @@ export class Stream2Component implements OnInit, OnDestroy {
         console.log(value);
       },
       () => {
-        console.log("error");
+        console.log('error');
       },
       () => {
-        console.log("complete");
+        console.log('complete');
       }
-    )
-  };
+    );
+  }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

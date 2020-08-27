@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { fromEvent, of, empty, Subscription } from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import { fromEvent, of, empty, Subscription, interval } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+
 import {
   mapTo,
   scan,
@@ -16,7 +18,7 @@ import {
   templateUrl: './stream1.component.html',
   styleUrls: ['./stream1.component.less']
 })
-export class Stream1Component implements OnInit {
+export class Stream1Component implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
   constructor() {}
 
@@ -24,6 +26,7 @@ export class Stream1Component implements OnInit {
     this.initExample1();
     this.initExample2();
     this.initExample3();
+    this.initExample4();
   }
 
   initExample1(): void {
@@ -67,6 +70,13 @@ export class Stream1Component implements OnInit {
       });
 
     this.subscriptions.push(subscription3);
+  }
+
+  initExample4(): void {
+    const switchMapBtn = document.getElementById('switch-map');
+    fromEvent(switchMapBtn, 'click').pipe(
+      switchMap(event => interval(1000))
+    ).subscribe(val => console.log(val));
   }
 
   ngOnDestroy(): void {
